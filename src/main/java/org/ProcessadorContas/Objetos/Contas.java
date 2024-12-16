@@ -1,5 +1,7 @@
 package org.ProcessadorContas.Objetos;
 
+import org.ProcessadorContas.utils.TipoPagamento;
+
 import java.util.Date;
 import java.util.UUID;
 
@@ -13,5 +15,13 @@ public class Contas {
         this.codigoConta = UUID.randomUUID().toString();
         this.data = dataVencimento;
         this.tipo = tipoPagamento;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public TipoPagamento getTipo(){
+        return this.tipo;
     }
 }
