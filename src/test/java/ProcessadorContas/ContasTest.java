@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ContasTest {
     @Test
     public void TestaCriarConta(){
-        Contas conta = new Contas(new Date(2024, 12,16), TipoPagamento.BOLETO);
+        Contas conta = new Contas(new Date(2024, 12,16), 400);
         assertEquals(new Date(2024, 12,16), conta.getData());
-        assertEquals(TipoPagamento.BOLETO, conta.getTipo());
+        assertEquals(400, conta.getValorPago());
     }
 }
