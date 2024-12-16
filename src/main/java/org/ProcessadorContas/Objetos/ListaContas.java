@@ -10,6 +10,10 @@ public class ListaContas {
         this.contas = new ArrayList<Contas>();
     }
 
+    public void addConta(Contas contas){
+        this.contas.add(contas);
+    }
+
     public int size(){
         return this.contas.size();
     }
