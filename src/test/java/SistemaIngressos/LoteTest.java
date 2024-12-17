@@ -3,6 +3,7 @@ package SistemaIngressos;
 import static org.junit.jupiter.api.Assertions.*;
 
 import SistemaIngressos.Objetos.Ingresso;
+import SistemaIngressos.Objetos.Lote;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 
