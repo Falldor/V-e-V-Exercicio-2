@@ -1,6 +1,8 @@
 package SistemaIngressos;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import SistemaIngressos.Objetos.Ingresso;
 import org.junit.jupiter.api.Test;
 
 class IngressoTest {
