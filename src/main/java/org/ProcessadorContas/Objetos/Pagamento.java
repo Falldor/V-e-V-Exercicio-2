@@ -3,37 +3,17 @@ package org.ProcessadorContas.Objetos;
 import org.ProcessadorContas.utils.TipoPagamento;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.UUID;
 
+public class Pagamento {
 
-public class Contas {
-    private String codigoConta;
-    private LocalDate data;
     private double valorPago;
+    private LocalDate DataPagamento;
     private TipoPagamento tipoPagamento;
 
-    public Contas(LocalDate data, double valorPago, TipoPagamento tipoPagamento) {
-        this.codigoConta =  UUID.randomUUID().toString();
-        this.data = data;
+    public Pagamento(double valorPago, LocalDate dataPagamento, TipoPagamento tipoPagamento) {
         this.valorPago = valorPago;
+        DataPagamento = dataPagamento;
         this.tipoPagamento = tipoPagamento;
-    }
-
-    public String getCodigoConta() {
-        return codigoConta;
-    }
-
-    public void setCodigoConta(String codigoConta) {
-        this.codigoConta = codigoConta;
-    }
-
-    public LocalDate getData() {
-        return data;
-    }
-
-    public void setData(LocalDate data) {
-        this.data = data;
     }
 
     public double getValorPago() {
@@ -42,6 +22,14 @@ public class Contas {
 
     public void setValorPago(double valorPago) {
         this.valorPago = valorPago;
+    }
+
+    public LocalDate getDataPagamento() {
+        return DataPagamento;
+    }
+
+    public void setDataPagamento(LocalDate dataPagamento) {
+        DataPagamento = dataPagamento;
     }
 
     public TipoPagamento getTipoPagamento() {
