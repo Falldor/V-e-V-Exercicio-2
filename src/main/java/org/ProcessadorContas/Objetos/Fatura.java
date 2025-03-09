@@ -10,14 +10,14 @@ public class Fatura {
     private String nomeCliente;
     private float valorTotal;
     private LocalDate dataVencimento;
-
-    private Status staus;
+    private Status status;
 
 
     public Fatura(float valorTotal, LocalDate dataVencimento, String nomeCliente ){
         this.nomeCliente = nomeCliente;
         this.dataVencimento = dataVencimento;
         this.valorTotal = valorTotal;
+        this.status = Status.PENDENTE;
     }
 
     public String getNomeCliente() {
@@ -44,11 +44,11 @@ public class Fatura {
         this.dataVencimento = dataVencimento;
     }
 
-    public Status getStaus() {
-        return staus;
+    public Status getStatus() {
+        return status;
     }
 
-    public void setStaus(Status staus) {
-        this.staus = staus;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }

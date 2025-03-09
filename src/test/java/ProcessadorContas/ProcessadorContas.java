@@ -34,7 +34,7 @@ public class ProcessadorContas {
             listcontas.add(contas);
         }
         processador = new ProcessaContas(fatura, listcontas);
-        assertEquals(Status.PAGA, fatura.getStaus());
+        assertEquals(Status.PAGA, fatura.getStatus());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class ProcessadorContas {
         listcontas.add(new Contas(LocalDate.of(2023,02,05),700,TipoPagamento.CARTAO_CREDITO));
         listcontas.add(new Contas(LocalDate.of(2023,02,17),800,TipoPagamento.TRANSFERENCIA_BANCARIA));
         processador = new ProcessaContas(fatura,listcontas);
-        assertEquals(Status.PAGA,fatura.getStaus());
+        assertEquals(Status.PAGA,fatura.getStatus());
     }
 
     @Test
@@ -50,6 +50,6 @@ public class ProcessadorContas {
         listcontas.add(new Contas(LocalDate.of(2023,02,06),700,TipoPagamento.CARTAO_CREDITO));
         listcontas.add(new Contas(LocalDate.of(2023,02,17),800,TipoPagamento.TRANSFERENCIA_BANCARIA));
         processador = new ProcessaContas(fatura,listcontas);
-        assertEquals(Status.PENDENTE,fatura.getStaus());
+        assertEquals(Status.PENDENTE,fatura.getStatus());
     }
 }

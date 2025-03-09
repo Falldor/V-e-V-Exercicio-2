@@ -20,9 +20,10 @@ public class ProcessaContas {
         }
 
         if(total >= fatura.getValorTotal()){
-            fatura.setStaus(Status.PAGA);
+            fatura.setStatus(Status.PAGA);
         }else{
-            fatura.setStaus(Status.PENDENTE);
+
+            fatura.setStatus(Status.PENDENTE);
         }
     }
 
@@ -44,7 +45,7 @@ public class ProcessaContas {
     }
 
     private double checkBoleto(Contas conta, Fatura fatura){
-        if(conta.getValorPago() > 0.01 && conta.getValorPago() < 5000){
+        if(conta.getValorPago() >= 0.01 && conta.getValorPago() <= 5000){
             if(conta.getData().isAfter(fatura.getDataVencimento())){
                 conta.setValorPago(conta.getValorPago() * 0.10);
             }
