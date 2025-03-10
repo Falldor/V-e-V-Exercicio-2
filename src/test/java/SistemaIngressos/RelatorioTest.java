@@ -1,17 +1,19 @@
 package SistemaIngressos;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import SistemaIngressos.Objetos.Ingresso;
 import SistemaIngressos.Objetos.Lote;
 import SistemaIngressos.Objetos.Relatorio;
 import SistemaIngressos.Objetos.Show;
+import SistemaIngressos.utils.Status;
 import SistemaIngressos.utils.TipoIngresso;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 
-class ShowTest {
+public class RelatorioTest {
 
     Ingresso ingressoVip;
     Ingresso ingressoNormal;
@@ -24,18 +26,15 @@ class ShowTest {
     }
 
     @Test
-    public void criaShow(){
-        Show show = new Show("2024-12-20","Artista X", 1000, 2000,false, List.of(lote));
+    void deveGerarRelatorioDoShowComLucro() {
+        Show show = new Show("2024-01-15", "Artista X", 1000.0, 2000.0, true, List.of(lote));
+        Relatorio relatorio = new Relatorio();
+        relatorio.gerarRelatorio(show);
 
-        assertEquals("2024-12-20", show.getData());
-        assertEquals("Artista X", show.getArtista());
-        assertEquals(1000,show.getCache());
-        assertEquals(2000, show.getDespesas());
-        assertFalse(show.isDataEspecial());
-        assertEquals(1, List.of(lote).size());
-
+        assertEquals(1, relatorio.getTotalVip());
+        assertEquals(0, relatorio.getTotalMeia());
+        assertEquals(1, relatorio.getTotalNormal());
+        assertEquals(-3274.5, relatorio.getLucroLiquido());
+        assertEquals(Status.PREJUIZO, relatorio.getStatus());
     }
-
-
 }
-

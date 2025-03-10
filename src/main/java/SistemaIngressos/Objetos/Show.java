@@ -18,28 +18,51 @@ public class Show {
         this.lotes = lotes;
     }
 
-    public Relatorio gerarRelatorio() {
-        int totalVip = 0, totalNormal = 0;
-        double receita = 0.0;
+    public String getData() {
+        return data;
+    }
 
-        for (Lote lote : lotes) {
-            for (Ingresso ingresso : lote.getIngressos()) {
-                if (ingresso.isVendido()) {
-                    double preco = ingresso.getPreco();
-                    if (lote.getDesconto() > 0) {
-                        preco -= preco * lote.getDesconto();
-                    }
-                    receita += preco;
+    public void setData(String data) {
+        this.data = data;
+    }
 
-                    if (ingresso.getTipo().equals("VIP")) totalVip++;
-                    else if (ingresso.getTipo().equals("NORMAL")) totalNormal++;
-                }
-            }
-        }
+    public String getArtista() {
+        return artista;
+    }
 
-        double lucroLiquido = receita - cache - despesas;
-        String statusFinanceiro = lucroLiquido > 0 ? "LUCRO" : lucroLiquido == 0 ? "ESTÁVEL" : "PREJUÍZO";
+    public void setArtista(String artista) {
+        this.artista = artista;
+    }
 
-        return new Relatorio(totalVip, totalNormal, receita, statusFinanceiro);
+    public double getCache() {
+        return cache;
+    }
+
+    public void setCache(double cache) {
+        this.cache = cache;
+    }
+
+    public double getDespesas() {
+        return despesas;
+    }
+
+    public void setDespesas(double despesas) {
+        this.despesas = despesas;
+    }
+
+    public boolean isDataEspecial() {
+        return dataEspecial;
+    }
+
+    public void setDataEspecial(boolean dataEspecial) {
+        this.dataEspecial = dataEspecial;
+    }
+
+    public List<Lote> getLotes() {
+        return lotes;
+    }
+
+    public void setLotes(List<Lote> lotes) {
+        this.lotes = lotes;
     }
 }
