@@ -20,9 +20,9 @@ public class RelatorioTest {
     Lote lote;
     @BeforeEach
     public void setup(){
-        ingressoVip = new Ingresso(1, TipoIngresso.NORMAL, false, 10.0);
-        ingressoNormal = new Ingresso(1, TipoIngresso.VIP, false, 20.0);
-        lote = new Lote(1, List.of(ingressoVip, ingressoVip), 0.15);
+        ingressoVip = new Ingresso(1, TipoIngresso.NORMAL, true, 10.0);
+        ingressoNormal = new Ingresso(1, TipoIngresso.VIP, true, 20.0);
+        lote = new Lote(1, List.of(ingressoNormal, ingressoVip), 0.15);
     }
 
     @Test
